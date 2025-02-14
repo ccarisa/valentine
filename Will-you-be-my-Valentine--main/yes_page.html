@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Valentine Surprise</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;700&display=swap');
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            height: 100vh;
+            background-color: pink;
+            color: black;
+            font-family: 'Outfit', sans-serif;
+            overflow: hidden;
+            text-align: center;
+        }
+        .title {
+            font-size: 32px;
+            font-weight: bold;
+            animation: fadeIn 2s ease-in-out;
+        }
+        .content {
+            margin-top: 20px;
+            font-size: 22px;
+            animation: fadeUp 2s ease-in-out;
+        }
+        .button-container {
+            margin-top: 20px;
+        }
+        .cute-button {
+            padding: 12px 24px;
+            background-color: #ff69b4;
+            color: white;
+            font-size: 20px;
+            font-weight: bold;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease-in-out;
+            margin: 10px;
+        }
+        .cute-button:hover {
+            background-color: #ff1493;
+            transform: scale(1.1);
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        @keyframes fadeUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .floating-heart {
+            position: absolute;
+            width: 50px;
+            height: 50px;
+            background-image: url('https://cdn-icons-png.flaticon.com/512/833/833472.png');
+            background-size: cover;
+            animation: float 5s infinite ease-in-out;
+        }
+        @keyframes float {
+            0% { transform: translateY(0); opacity: 1; }
+            50% { transform: translateY(-50px); opacity: 0.7; }
+            100% { transform: translateY(0); opacity: 1; }
+        }
+        .text-box {
+            margin-top: 20px;
+            padding: 15px;
+            width: 90%;
+            max-width: 500px;
+            height: 150px;
+            border: 2px solid #ff69b4;
+            border-radius: 10px;
+            background-color: #fff0f5;
+            font-size: 18px;
+            text-align: center;
+            outline: none;
+        }
+        .message-box {
+            margin-top: 20px;
+            padding: 15px;
+            width: 80%;
+            max-width: 400px;
+            border: 3px solid #ff1493;
+            border-radius: 15px;
+            background-color: #ffe4e1;
+            font-size: 20px;
+            font-weight: bold;
+            text-align: center;
+            color: #d10069;
+        }
+        audio {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="message-box">Kannn... I LOVE UUU SAYANGG</div>
+    <textarea class="text-box" placeholder="Aku bikin ini tabrakan sama aku ngerjain tugasku. ga bagus sih apalagi ini template yang 
+    coba aku edit sendiri. aku tau mas pasti bisa buat tapi semoga mas senang aku kasih ini hihihi senang sekali bisa bareng sama mas di hari ini.
+    semoga mas bisa tauu kalo aku sayang sekali sama mas. aku berusaha jadi jadi orang yang baik untuk masss, 
+    aku berharap kalau ada apa apa sampai sekarang mas masih bisa liat aku sebagai tempat cerita meskipun aku berisik,
+    mungkin banyak bullshitnya dan banyak kurangnya dari segi apapun tapi aku coba jadi yang terbaik kok. semoga mas bisa sedikit kepercayaannya
+    untuk aku yaa love uuuu"></textarea>
+    <div class="button-container">
+        <div class="title">Tapi mas beneran sayang aku ga?</div>
+        <button class="cute-button" onclick="showLove()">Sayang</button>
+        <button class="cute-button" id="noButton" onmouseover="moveButton()">Nggak</button>
+    </div>
+    <audio id="loveSong" src="https://www.myinstants.com/media/sounds/romantic-music.mp3" autoplay loop></audio>
+    <script>
+        function createHeart() {
+            const heart = document.createElement("div");
+            heart.classList.add("floating-heart");
+            document.body.appendChild(heart);
+            
+            heart.style.left = Math.random() * window.innerWidth + "px";
+            heart.style.top = Math.random() * window.innerHeight + "px";
+            heart.style.animationDuration = (Math.random() * 3 + 2) + "s";
+            
+            setTimeout(() => {
+                heart.remove();
+            }, 5000);
+        }
+        
+        setInterval(createHeart, 800);
+
+        function showLove() {
+            alert('HIHIHI MUAHHHH ❤️');
+        }
+        
+        function moveButton() {
+            let noButton = document.getElementById("noButton");
+            let x = Math.random() * (window.innerWidth - 100);
+            let y = Math.random() * (window.innerHeight - 50);
+            noButton.style.position = "absolute";
+            noButton.style.left = `${x}px`;
+            noButton.style.top = `${y}px`;
+        }
+    </script>
+</body>
+</html>
